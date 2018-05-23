@@ -25,7 +25,7 @@ public class Personnel {
  
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column
+    @Column(name = "id")
     private Long id;
 
     @Embedded
@@ -34,13 +34,13 @@ public class Personnel {
     @Embedded
     private Address address;
 
-    @Column
+    @Column(name = "birthday")
     private Date birthday;
 
-    @Column   
+    @Column(name = "gwa")
     private Double gwa;
 
-    @Column
+    @Column(name = "date_hired")
     private Date dateHired;
 
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)

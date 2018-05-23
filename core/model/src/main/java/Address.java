@@ -3,16 +3,16 @@ import javax.persistence.*;
 @Embeddable
 public class Address {
 
-    @Column
+    @Column(name = "st_number")
 	private String stNum;
 	
-    @Column
+    @Column(name = "barangay")
     private String brgy;
 	
-    @Column
+    @Column(name = "city")
     private String city;
 	
-    @Column
+    @Column(name = "zip_code")
     private String zipCode;
 
     public Address() { }

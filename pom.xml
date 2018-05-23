@@ -2,11 +2,12 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.exist.ecc</groupId>
-  <artifactId>hibernate</artifactId>
+  <artifactId>servlet</artifactId>
   <packaging>pom</packaging>
   <version>1.0</version>
 
  <properties>
+   <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <myversion>1.0</myversion>
 </properties>
 
@@ -86,6 +87,12 @@
         <version>1.7.21</version>
       </dependency>
 
+      <dependency>
+        <groupId>org.eclipse.jetty</groupId>
+        <artifactId>jetty-servlets</artifactId>
+        <version>9.4.10.v20180503</version>
+      </dependency>
+
     </dependencies>
   </dependencyManagement>
 
@@ -93,6 +100,7 @@
 
     <pluginManagement>
       <plugins>
+
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
@@ -122,6 +130,18 @@
               </configuration>
             </execution>
           </executions>
+        </plugin>
+
+        <plugin>
+          <groupId>org.eclipse.jetty</groupId>
+          <artifactId>jetty-maven-plugin</artifactId>
+          <version>9.4.10.v20180503</version>
+          <configuration>
+            <scanIntervalSeconds>10</scanIntervalSeconds>
+            <webApp>
+              <contextPath>/home</contextPath>
+            </webApp>  
+          </configuration>
         </plugin>
 
       </plugins>

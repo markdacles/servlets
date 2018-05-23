@@ -30,7 +30,7 @@ public class Roles {
     @Column(name = "role_id")
 	private Long roleId;
 	
-	@Column
+	@Column(name = "role")
 	private String role;
 	
 	@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)

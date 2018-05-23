@@ -13,13 +13,13 @@ public class Contact {
     @Column(name = "contact_id")
 	private Long contactId;
 	
-    @Column
+    @Column(name = "landline")
     private String landline;
 	
-    @Column
+    @Column(name = "mobile")
     private String mobile;
 	
-    @Column
+    @Column(name = "email")
     private String email;
 
     public Contact() { }

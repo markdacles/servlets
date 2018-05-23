@@ -3,19 +3,19 @@ import javax.persistence.*;
 @Embeddable
 public class Name {
 
-    @Column
+    @Column(name = "last_name")
 	private String lname;
 	
-    @Column
+    @Column(name = "first_name")
     private String fname;
 	
-    @Column
+    @Column(name = "middle_name")
     private String mname;
 	
-    @Column
+    @Column(name = "suffix")
     private String suffix;
 	
-    @Column
+    @Column(name = "title")
     private String title;
 
     public Name() { }
