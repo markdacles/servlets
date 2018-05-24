@@ -1,6 +1,8 @@
 import java.time.*;
 import java.util.Set;
 import java.util.*;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -34,12 +36,14 @@ public class Personnel {
     @Embedded
     private Address address;
 
+    @Temporal(TemporalType.DATE)
     @Column(name = "birthday")
     private Date birthday;
 
     @Column(name = "gwa")
     private Double gwa;
 
+    @Temporal(TemporalType.DATE)
     @Column(name = "date_hired")
     private Date dateHired;
 

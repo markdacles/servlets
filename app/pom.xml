@@ -57,6 +57,13 @@
         <version>4.0.0</version>
         <scope>provided</scope>
     </dependency>
+
+     <dependency>
+            <groupId>javax.servlet.jsp.jstl</groupId>
+            <artifactId>javax.servlet.jsp.jstl-api</artifactId>
+            <version>1.2.1</version>
+    </dependency>
+
   </dependencies>
 
    <build>
@@ -72,6 +79,10 @@
         <artifactId>jetty-maven-plugin</artifactId>
       </plugin>
       
+      <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-war-plugin</artifactId>
+      </plugin>
     </plugins>
   </build>
 

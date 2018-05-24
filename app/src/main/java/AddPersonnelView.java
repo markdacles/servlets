@@ -11,18 +11,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(value = "/personnelmgt")
-public class PersonnelManagement extends HttpServlet{
+@WebServlet(value = "/addPersonnelView")
+public class AddPersonnelView extends HttpServlet{
 
 
    	public void doGet(HttpServletRequest request, HttpServletResponse response)
     	throws ServletException, IOException {
 
-    	List<Personnel> personnelList = new PersonnelService().listPersonnel();
-    	
-    	request.setAttribute("personnelList", personnelList);
+    	Set<Roles> roleList = new RoleService().findAll();
 
-    	request.getRequestDispatcher("personnelmgt.jsp").forward(request,response);
+    	request.setAttribute("roleList", roleList);
+
+    	request.getRequestDispatcher("personnelform.jsp").forward(request,response);
 
     }
 }
