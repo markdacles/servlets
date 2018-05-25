@@ -4,28 +4,30 @@
 
 <html>
     <head>
-        <title>Add Contact</title>
+        <title>Update Contact</title>
     </head>
 
     <body>
-        <h2>Add Contact</h2>
+        <h2>Update Contact</h2>
         <hr/>
-        <br>
-
-        <form action = "/addContact?personnelId=<c:out value='${personnelId}'/>" method = "POST">
-
+        <div>
+        <form action = "/updateContact" method = "POST">
+            
             Landline:
                 <input type = "text" name = "landline" required><br/> 
             Mobile:
                 <input type = "text" name = "mobile" maxlength="20" required/><br/>
             Email:
                 <input type = "email" name = "email" maxlength="20" required/><br/>
-
-            <input type = "submit" value = "Add Contact" />
+                <br>
+            <input type = "submit" value = "Update Contact" />
+            <input type = "hidden" name = "personnelid" value = "${personnelid}"><br/> 
+            <input type = "hidden" name = "contactid" value = "${contactid}"><br/> 
         </form>
+        </div>
         <br>
-         <form action="personnelmgt">
-            <button type="submit">Back</button>
-        </form>
+         <a href="/contactmgt?personnelId=<c:out value='${personnelid}'/>">
+           <input type="button" value="Back" />
+        </a>
     </body>
 </html>

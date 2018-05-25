@@ -13,18 +13,17 @@ import javax.servlet.http.HttpServletResponse;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDate;
 
-@WebServlet(value = "/addContact")
-public class AddContact extends HttpServlet{
+@WebServlet(value = "/deletePersonnel")
+public class DeletePersonnel extends HttpServlet{
    	
    	public void doPost(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
 
 			Personnel p = new PersonnelService().findById(Long.parseLong(request.getParameter("personnelid")));
-			Contact contact = new Contact(request.getParameter("landline"),request.getParameter("mobile"),request.getParameter("email"));
-	        p.getContact().add(contact);
-	        new ContactService().addContactToPersonnel(p);
+			
+	        new PersonnelService().deletePersonnel(Long.parseLong(request.getParameter("personnelid")));
 
-	       	response.sendRedirect("/contactmgt?personnelId="+Long.parseLong(request.getParameter("personnelid")));
+	       	response.sendRedirect("/personnelmgt");
 
 	}
 }

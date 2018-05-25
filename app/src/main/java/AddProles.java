@@ -13,18 +13,26 @@ import javax.servlet.http.HttpServletResponse;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDate;
 
-@WebServlet(value = "/addContact")
-public class AddContact extends HttpServlet{
+@WebServlet(value = "/addProles")
+public class AddProles extends HttpServlet{
    	
    	public void doPost(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
 
 			Personnel p = new PersonnelService().findById(Long.parseLong(request.getParameter("personnelid")));
-			Contact contact = new Contact(request.getParameter("landline"),request.getParameter("mobile"),request.getParameter("email"));
-	        p.getContact().add(contact);
-	        new ContactService().addContactToPersonnel(p);
 
-	       	response.sendRedirect("/contactmgt?personnelId="+Long.parseLong(request.getParameter("personnelid")));
+			Set<Roles> roles = new HashSet<Roles>();
+			String[] cRoles = request.getParameterValues("checkedRoles");
+			if (cRoles != null) {
+	            for (String id : cRoles) {
+	               Roles role = new RoleService().findById(Long.parseLong(id));
+	               p.getRoles().add(role);
+	            }
+	        }
+
+	        new PersonnelService().updatePersonnel(p);
+
+	       	response.sendRedirect("/proles?personnelId="+Long.parseLong(request.getParameter("personnelid")));
 
 	}
 }

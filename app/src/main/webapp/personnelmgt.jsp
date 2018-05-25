@@ -10,11 +10,10 @@
 
     <body>
         <h2>Manage Personnel</h2>
+         <hr/>
         <form action="/addPersonnelView">
             <button type="submit">Add Person</button>
         </form>
-        <hr/>
-        <br>
 
         <div>
             <table border = "1" width = "100%">
@@ -46,9 +45,13 @@
                         <td>${p.gwa}</td>
                         <td><fmt:formatDate pattern = "dd/MM/yyyy" value = "${p.dateHired}" /></td>
                         <td><a href = "/contactmgt?personnelId=<c:out value='${p.id}'/>" >View Contact</a></td>
-                        <td><a href = "">View Roles</a></td>
-                        <td><a href = "">Update Person</a></td>
-                        <td><a href = "">Delete Person</a></td>
+                        <td><a href = "/proles?personnelId=<c:out value='${p.id}'/>" >View Roles</a></td>
+                        <td><a href = "/uppersonnelView?personnelId=<c:out value='${p.id}'/>" >Update Person</a></td>
+                        <td valign="bottom">
+                            <form name="${p}" action="/deletePersonnel?personnelid=<c:out value='${p.id}'/>" method="POST">
+                                <a href="javascript:document.forms['${p}'].submit()">Delete Personnel</a>
+                            </form>
+                        </td>
                     </tr>
                 </c:forEach>
             </table>

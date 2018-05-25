@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(value = "/addContactView")
-public class AddContactView extends HttpServlet{
+@WebServlet(value = "/addProleView")
+public class AddProleView extends HttpServlet{
 
 
    	public void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -20,7 +20,16 @@ public class AddContactView extends HttpServlet{
 
     	request.setAttribute("personnelid", request.getParameter("personnelid"));
 
-    	request.getRequestDispatcher("newcontactform.jsp").forward(request,response);
+    	Set<Roles> aRoles = new RoleService().findAll();
+    	Personnel p = new PersonnelService().findById(Long.parseLong(request.getParameter("personnelid")));
+		
+		for(Roles r : p.getRoles()) {
+			aRoles.removeIf(i -> i.getRoleId() == r.getRoleId());
+		}
+
+		request.setAttribute("aroles", aRoles);
+
+    	request.getRequestDispatcher("addproleform.jsp").forward(request,response);
 
     }
 }

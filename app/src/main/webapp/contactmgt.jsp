@@ -9,12 +9,12 @@
     </head>
 
     <body>
-        <h2>Manage Contact for Personnel #${personnelId}</h2>
-        <form action="/addContactView">
-            <jsp:include page="/addContactView?flag=1&operation=1"/>
-            <button type="submit">Add Contact</button>
-        </form>
+        <h2>Manage Contact for Personnel #${personnel.id}</h2>
         <hr/>
+        <a href="addContactView?personnelid=<c:out value='${personnel.id}'/>">
+           <input type="button" value="Add Contacts" />
+        </a>
+        <br>
         <br>
 
         <div>
@@ -34,8 +34,16 @@
                         <td>${contact.landline}</td>
                         <td>${contact.mobile}</td>
                         <td>${contact.email}</td>
-                        <td><a href = "">Update Contact</a></td>
-                        <td><a href = "">Delete Contact</a></td>
+                        <td>
+                            <a href="updateContactView?personnelid=<c:out value='${personnel.id}'/>&contactid=<c:out value='${contact.contactId}'/>">
+                               Update Contact
+                            </a>
+                        </td>
+                        <td valign="bottom">
+                            <form name="${contact}" action="/deleteContact?personnelid=<c:out value='${personnel.id}'/>&contactid=<c:out value='${contact.contactId}'/>" method="POST">
+                                <a href="javascript:document.forms['${contact}'].submit()">Delete Contact</a>
+                            </form>
+                        </td>
                     </tr>
                 </c:forEach>
             </table>

@@ -13,16 +13,21 @@ import javax.servlet.http.HttpServletResponse;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDate;
 
-@WebServlet(value = "/addContact")
-public class AddContact extends HttpServlet{
+@WebServlet(value = "/updateContact")
+public class UpdateContact extends HttpServlet{
    	
    	public void doPost(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
 
 			Personnel p = new PersonnelService().findById(Long.parseLong(request.getParameter("personnelid")));
-			Contact contact = new Contact(request.getParameter("landline"),request.getParameter("mobile"),request.getParameter("email"));
-	        p.getContact().add(contact);
-	        new ContactService().addContactToPersonnel(p);
+			for(Contact c : p.getContact()) {
+				if(c.getContactId() == Long.parseLong(request.getParameter("contactid"))) {
+					c.setLandline(request.getParameter("landline"));
+					c.setMobile(request.getParameter("mobile"));
+					c.setEmail(request.getParameter("email"));
+				}
+			}
+	        new ContactService().updateContact(p);
 
 	       	response.sendRedirect("/contactmgt?personnelId="+Long.parseLong(request.getParameter("personnelid")));
 
