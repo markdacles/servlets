@@ -14,11 +14,11 @@
         <form action = "/updateContact" method = "POST">
             
             Landline:
-                <input type = "text" name = "landline" required><br/> 
+                <input type = "text" name = "landline"><br/> 
             Mobile:
-                <input type = "text" name = "mobile" maxlength="20" required/><br/>
+                <input type = "text" name = "mobile" maxlength="20"/><br/>
             Email:
-                <input type = "email" name = "email" maxlength="20" required/><br/>
+                <input type = "email" name = "email" maxlength="20"/><br/>
                 <br>
             <input type = "submit" value = "Update Contact" />
             <input type = "hidden" name = "personnelid" value = "${personnelid}"><br/> 

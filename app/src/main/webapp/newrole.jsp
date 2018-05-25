@@ -13,13 +13,13 @@
         <div>   
         <form action = "/addRole" method = "POST">
             New Role:
-                <input type = "text" name = "role" required><br/> 
+                <input type = "text" pattern="[a-zA-Z]" name = "role" required><br/> 
 
             <input type = "submit" value = "Add Role" />
         </form>
     </div>
         <br>
-        <a href="/rolemgt'/>">
+        <a href="/rolemgt">
            <input type="button" value="Back" />
         </a>
     </body>

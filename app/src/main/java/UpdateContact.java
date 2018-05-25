@@ -22,9 +22,15 @@ public class UpdateContact extends HttpServlet{
 			Personnel p = new PersonnelService().findById(Long.parseLong(request.getParameter("personnelid")));
 			for(Contact c : p.getContact()) {
 				if(c.getContactId() == Long.parseLong(request.getParameter("contactid"))) {
-					c.setLandline(request.getParameter("landline"));
-					c.setMobile(request.getParameter("mobile"));
-					c.setEmail(request.getParameter("email"));
+					if(request.getParameter("landline") != "") {
+						c.setLandline(request.getParameter("landline"));
+					}
+					if(request.getParameter("mobile") != "") {
+						c.setMobile(request.getParameter("mobile"));
+					}
+					if(request.getParameter("email") != "") {
+						c.setEmail(request.getParameter("email"));
+					}
 				}
 			}
 	        new ContactService().updateContact(p);
