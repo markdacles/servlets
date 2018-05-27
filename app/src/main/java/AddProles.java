@@ -35,4 +35,22 @@ public class AddProles extends HttpServlet{
 	       	response.sendRedirect("/proles?personnelId="+Long.parseLong(request.getParameter("personnelid")));
 
 	}
+
+   	public void doGet(HttpServletRequest request, HttpServletResponse response)
+    	throws ServletException, IOException {
+
+    	request.setAttribute("personnelid", request.getParameter("personnelid"));
+
+    	Set<Roles> aRoles = new RoleService().findAll();
+    	Personnel p = new PersonnelService().findById(Long.parseLong(request.getParameter("personnelid")));
+		
+		for(Roles r : p.getRoles()) {
+			aRoles.removeIf(i -> i.getRoleId() == r.getRoleId());
+		}
+
+		request.setAttribute("aroles", aRoles);
+
+    	request.getRequestDispatcher("addproleform.jsp").forward(request,response);
+
+    }
 }

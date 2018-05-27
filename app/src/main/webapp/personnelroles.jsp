@@ -11,7 +11,7 @@
     <body>
         <h2>Manage Roles for Personnel #${personnel.id}</h2>
         <hr/>
-        <a href="addProleView?personnelid=<c:out value='${personnel.id}'/>">
+        <a href="addProle?personnelid=<c:out value='${personnel.id}'/>">
            <input type="button" value="Add Role" />
         </a>
         <br>

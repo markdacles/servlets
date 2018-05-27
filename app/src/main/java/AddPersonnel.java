@@ -46,4 +46,15 @@ public class AddPersonnel extends HttpServlet{
 	       	response.sendRedirect("/personnelmgt");
 
 	}
+
+	public void doGet(HttpServletRequest request, HttpServletResponse response)
+    	throws ServletException, IOException {
+
+    	Set<Roles> roleList = new RoleService().findAll();
+
+    	request.setAttribute("roleList", roleList);
+
+    	request.getRequestDispatcher("personnelform.jsp").forward(request,response);
+
+    }
 }

@@ -29,7 +29,7 @@
                     <tr>
                         <td>${r.roleId}</td>
                         <td>${r.role}</td>
-                        <td><a href = "/upRoleView?roleid=<c:out value='${r.roleId}'/>" >Update Role</a></td>
+                        <td><a href = "/updateRole?roleid=<c:out value='${r.roleId}'/>" >Update Role</a></td>
                         <td>
                             <c:choose>
                              <c:when test="${fn:contains(activeRoles, r.role)}">

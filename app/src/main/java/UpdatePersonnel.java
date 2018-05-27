@@ -36,4 +36,17 @@ public class UpdatePersonnel extends HttpServlet{
 	       	response.sendRedirect("/personnelmgt");
 
 	}
+
+   	public void doGet(HttpServletRequest request, HttpServletResponse response)
+    	throws ServletException, IOException {
+
+    	request.setAttribute("personnelid", request.getParameter("personnelId"));
+
+    	Personnel p = new PersonnelService().findById(Long.parseLong(request.getParameter("personnelId")));
+
+    	request.setAttribute("p",p);
+
+    	request.getRequestDispatcher("updatepersonnel.jsp").forward(request,response);
+
+    }
 }

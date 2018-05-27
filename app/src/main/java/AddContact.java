@@ -27,4 +27,13 @@ public class AddContact extends HttpServlet{
 	       	response.sendRedirect("/contactmgt?personnelId="+Long.parseLong(request.getParameter("personnelid")));
 
 	}
+
+	public void doGet(HttpServletRequest request, HttpServletResponse response)
+    	throws ServletException, IOException {
+
+    	request.setAttribute("personnelid", request.getParameter("personnelid"));
+
+    	request.getRequestDispatcher("newcontactform.jsp").forward(request,response);
+
+    }
 }

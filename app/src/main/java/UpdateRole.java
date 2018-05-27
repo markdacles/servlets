@@ -24,4 +24,17 @@ public class UpdateRole extends HttpServlet{
 	       	response.sendRedirect("/rolemgt");
 
 	}
+
+  	public void doGet(HttpServletRequest request, HttpServletResponse response)
+    	throws ServletException, IOException {
+
+    	request.setAttribute("roleid", request.getParameter("roleid"));
+
+    	Roles r = new RoleService().findById(Long.parseLong(request.getParameter("roleid")));
+
+    	request.setAttribute("r",r);
+
+    	request.getRequestDispatcher("updaterole.jsp").forward(request,response);
+
+    }
 }

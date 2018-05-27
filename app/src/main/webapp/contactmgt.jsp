@@ -11,7 +11,7 @@
     <body>
         <h2>Manage Contact for Personnel #${personnel.id}</h2>
         <hr/>
-        <a href="addContactView?personnelid=<c:out value='${personnel.id}'/>">
+        <a href="addContact?personnelid=<c:out value='${personnel.id}'/>">
            <input type="button" value="Add Contacts" />
         </a>
         <br>
@@ -35,7 +35,7 @@
                         <td>${contact.mobile}</td>
                         <td>${contact.email}</td>
                         <td>
-                            <a href="updateContactView?personnelid=<c:out value='${personnel.id}'/>&contactid=<c:out value='${contact.contactId}'/>">
+                            <a href="updateContact?personnelid=<c:out value='${personnel.id}'/>&contactid=<c:out value='${contact.contactId}'/>">
                                Update Contact
                             </a>
                         </td>
