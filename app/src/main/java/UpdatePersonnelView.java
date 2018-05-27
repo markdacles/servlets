@@ -20,6 +20,10 @@ public class UpdatePersonnelView extends HttpServlet{
 
     	request.setAttribute("personnelid", request.getParameter("personnelId"));
 
+    	Personnel p = new PersonnelService().findById(Long.parseLong(request.getParameter("personnelId")));
+
+    	request.setAttribute("p",p);
+
     	request.getRequestDispatcher("updatepersonnel.jsp").forward(request,response);
 
     }

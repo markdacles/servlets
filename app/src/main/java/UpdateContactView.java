@@ -21,6 +21,15 @@ public class UpdateContactView extends HttpServlet{
     	request.setAttribute("contactid", request.getParameter("contactid"));
     	request.setAttribute("personnelid", request.getParameter("personnelid"));
 
+    	Personnel p = new PersonnelService().findById(Long.parseLong(request.getParameter("personnelid")));
+    	for(Contact c : p.getContact()) {
+    		if(c.getContactId() == Long.parseLong(request.getParameter("contactid"))) {
+    			request.setAttribute("contact", c);
+    			break;
+    		}
+
+    	}
+
     	request.getRequestDispatcher("upcontactform.jsp").forward(request,response);
 
     }

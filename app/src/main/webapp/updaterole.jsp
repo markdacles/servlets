@@ -14,7 +14,7 @@
 
         <form action = "/updateRole" method = "POST">
             Role Name:
-                <input type = "text" name = "role" required><br/> 
+                <input type = "text" name = "role" value = "${r.role}" required><br/> 
 
                 <br>
             <input type = "hidden" name = "roleid" value = "${roleid}"><br/> 

@@ -14,21 +14,21 @@
 
         <form action = "/updatePersonnel" method = "POST">
             First Name:
-                <input type = "text" name = "fname" required><br/> 
+                <input type = "text" name = "fname" value = "${p.name.fname}" required><br/> 
             Middle Name:
-                <input type = "text" name = "mname" maxlength="20" required/><br/>
+                <input type = "text" name = "mname" maxlength="20" value = "${p.name.mname}" required/><br/>
             Last Name:
-                <input type = "text" name = "lname" maxlength="20" required/><br/>
+                <input type = "text" name = "lname" maxlength="20" value = "${p.name.lname}" required/><br/>
             Barangay:
-                <input type = "text" name = "barangay" maxlength="20" required/><br/>
+                <input type = "text" name = "barangay" maxlength="20" value = "${p.address.brgy}" required/><br/>
             City:
-                <input type = "text" name = "city" maxlength="20" required/><br/>
+                <input type = "text" name = "city" maxlength="20" value = "${p.address.city}" required/><br/>
             Birthday:
-                <input type = "date" name = "birthday" required/><br/><br/>
+                <input type = "date" name = "birthday" value = "${p.birthday}" required/><br/><br/>
             GWA:
-                <input type = "number" min="1" max="5" step = "0.01" name = "gwa" required/><br/>
+                <input type = "number" min="1" max="5" step = "0.01" name = "gwa" value = "${p.gwa}" required/><br/>
             Date Hired:
-                <input type = "date" name = "date_hired" required/>
+                <input type = "date" name = "date_hired" value = "${p.dateHired}" required/>
 
                 <br>
             <input type = "hidden" name = "personnelid" value = "${personnelid}"><br/> 
