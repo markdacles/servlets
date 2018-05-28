@@ -20,26 +20,6 @@ public class PersonnelManagement extends HttpServlet{
 
     	List<Personnel> personnelList = new PersonnelService().listPersonnel();
     	
-    	if("id".equals(request.getParameter("id")){
-
-    	} else if("lname".equals(request.getParameter("id")){
-
-    	} else if("fname".equals(request.getParameter("id")){
-
-    	} else if("mname".equals(request.getParameter("id")){
-
-    	} else if("brgy".equals(request.getParameter("id")){
-
-    	} else if("city".equals(request.getParameter("id")){
-
-    	} else if("bday".equals(request.getParameter("id")){
-
-    	} else if("gwa".equals(request.getParameter("id")){
-
-    	} else if("datehired".equals(request.getParameter("id")){
-
-    	}
-
     	request.setAttribute("personnelList", personnelList);
 
     	request.getRequestDispatcher("personnelmgt.jsp").forward(request,response);
