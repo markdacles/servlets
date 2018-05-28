@@ -11,7 +11,7 @@
     <body>
         <h2>Manage Roles for Personnel #${personnel.id}</h2>
         <hr/>
-        <a href="addProle?personnelid=<c:out value='${personnel.id}'/>">
+        <a href="addProles?personnelid=<c:out value='${personnel.id}'/>">
            <input type="button" value="Add Role" />
         </a>
         <br>
@@ -20,12 +20,12 @@
         <div>
             <table border = "1" width = "100%">
                 <tr bgcolor = "#D3D3D3">
-                    <th>ID</th>
-                    <th>Role Name</th>
+                    <th><a href = "/proles?personnelId=<c:out value='${personnel.id}'/>&sortby=<c:out value='id'/>" >ID</a></th>
+                    <th><a href = "/proles?personnelId=<c:out value='${personnel.id}'/>&sortby=<c:out value='role'/>" >Role Name</a></th>
                     <th>Delete</th>
                 </tr>
 
-                <c:forEach items = "${personnel.roles}" var = "roles">
+                <c:forEach items = "${roles}" var = "roles">
                     <tr>
                         <td>${roles.roleId}</td>
                         <td>${roles.role}</td>

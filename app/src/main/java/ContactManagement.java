@@ -19,6 +19,20 @@ public class ContactManagement extends HttpServlet{
     	throws ServletException, IOException {
 
     	Personnel p = new PersonnelService().findById(Long.parseLong(request.getParameter("personnelId")));
+    	
+    	List<Contact> contactList = new ArrayList<Contact>(p.getContact());
+
+    	if("id".equals(request.getParameter("sortby"))) {
+    		Collections.sort(contactList, (Contact a1, Contact a2) -> a1.getContactId().compareTo(a2.getContactId()) );
+    	} else if("landline".equals(request.getParameter("sortby"))) {
+    		Collections.sort(contactList, (Contact a1, Contact a2) -> a1.getLandline().compareTo(a2.getLandline()) );
+    	} else if("mobile".equals(request.getParameter("sortby"))) {
+    		Collections.sort(contactList, (Contact a1, Contact a2) -> a1.getMobile().compareTo(a2.getMobile()) );
+    	} else if("email".equals(request.getParameter("sortby"))) {
+    		Collections.sort(contactList, (Contact a1, Contact a2) -> a1.getEmail().compareTo(a2.getEmail()) );
+    	} 
+
+    	request.setAttribute("contact", contactList);
     	request.setAttribute("personnel", p);
     	request.getRequestDispatcher("contactmgt.jsp").forward(request,response);
 

@@ -26,6 +26,16 @@ public class RoleManagement extends HttpServlet {
     		}
     	}
 
+        List<Roles> sortedRoles = new ArrayList<Roles>(rolelist);
+
+        if("id".equals(request.getParameter("sortby"))) {
+            Collections.sort(sortedRoles, (Roles a1, Roles a2) -> a1.getRoleId().compareTo(a2.getRoleId()) );
+        } else if("role".equals(request.getParameter("sortby"))) {
+            Collections.sort(sortedRoles, (Roles a1, Roles a2) -> a1.getRole().compareTo(a2.getRole()) );
+        }
+
+        request.setAttribute("sortedRoles", sortedRoles);
+
     	request.setAttribute("activeRoles", activeRoles);
 
     	request.setAttribute("rolelist", rolelist);

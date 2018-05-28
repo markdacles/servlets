@@ -19,13 +19,13 @@
         <div>
             <table border = "1" width = "100%">
                 <tr bgcolor = "#D3D3D3">
-                    <th>ID</th>
-                    <th>Role Name</th>
+                    <th><a href = "/rolemgt?personnelId=<c:out value='${personnel.id}'/>&sortby=<c:out value='id'/>" >ID</a></th>
+                    <th><a href = "/rolemgt?personnelId=<c:out value='${personnel.id}'/>&sortby=<c:out value='role'/>" >Role Name</a></th>
                     <th>Update</th>
                     <th>Delete</th>
                 </tr>
 
-                <c:forEach items = "${rolelist}" var = "r">
+                <c:forEach items = "${sortedRoles}" var = "r">
                     <tr>
                         <td>${r.roleId}</td>
                         <td>${r.role}</td>

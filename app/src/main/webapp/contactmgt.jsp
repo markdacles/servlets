@@ -20,15 +20,15 @@
         <div>
             <table border = "1" width = "100%">
                 <tr bgcolor = "#D3D3D3">
-                    <th>ID</th>
-                    <th>Landline</th>
-                    <th>Mobile</th>
-                    <th>Email</th>
+                    <th><a href = "/contactmgt?personnelId=<c:out value='${personnel.id}'/>&sortby=<c:out value='id'/>" >ID</a></th>
+                    <th><a href = "/contactmgt?personnelId=<c:out value='${personnel.id}'/>&sortby=<c:out value='landline'/>" >Landline</a></th>
+                    <th><a href = "/contactmgt?personnelId=<c:out value='${personnel.id}'/>&sortby=<c:out value='mobile'/>" >Mobile</a></th>
+                    <th><a href = "/contactmgt?personnelId=<c:out value='${personnel.id}'/>&sortby=<c:out value='email'/>" >Email</a></th>
                     <th>Update</th>
                     <th>Delete</th>
                 </tr>
 
-                <c:forEach items = "${personnel.contact}" var = "contact">
+                <c:forEach items = "${contact}" var = "contact">
                     <tr>
                         <td>${contact.contactId}</td>
                         <td>${contact.landline}</td>
