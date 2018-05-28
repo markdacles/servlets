@@ -18,15 +18,15 @@
         <div>
             <table border = "1" width = "100%">
                 <tr bgcolor = "#D3D3D3">
-                    <th>ID</th>
-                    <th>First Name</th>
-                    <th>Middle Name</th>
-                    <th>Last Name</th>
-                    <th>Barangay</th>
-                    <th>City</th>
-                    <th>Birthday</th>
-                    <th>GWA</th>
-                    <th>Date Hired</th>
+                    <th><a href = "/personnelmgt?sortby=<c:out value='id'/>" >ID</a></th>
+                    <th><a href = "/personnelmgt?sortby=<c:out value='fname'/>" >First Name</a></th>
+                    <th><a href = "/personnelmgt?sortby=<c:out value='mname'/>" >Middle Name</a></th>
+                    <th><a href = "/personnelmgt?sortby=<c:out value='lname'/>" >Last Name</a></th>
+                    <th><a href = "/personnelmgt?sortby=<c:out value='brgy'/>" >Barangay</a></th>
+                    <th><a href = "/personnelmgt?sortby=<c:out value='city'/>" >City</a></th>
+                    <th><a href = "/personnelmgt?sortby=<c:out value='bday'/>" >Birthday</a></th>
+                    <th><a href = "/personnelmgt?sortby=<c:out value='gwa'/>" >GWA</a></th>
+                    <th><a href = "/personnelmgt?sortby=<c:out value='datehired'/>" >Date Hired</a></th>
                     <th>Contact</th>
                     <th>Roles</th>
                     <th>Update</th>
