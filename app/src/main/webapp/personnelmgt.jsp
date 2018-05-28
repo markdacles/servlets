@@ -18,8 +18,8 @@
         <div>
             <table border = "1" width = "100%">
                 <tr bgcolor = "#D3D3D3">
-                    <th>ID</th>
-                    <th>First Name</th>
+                    <th><a href = "/personnelmgt?sortby=<c:out value='ID'/>" >ID</a></th>
+                    <th><a href = "/personnelmgt?sortby=<c:out value='fname'/>" >First Name</a></th>
                     <th>Middle Name</th>
                     <th>Last Name</th>
                     <th>Barangay</th>
